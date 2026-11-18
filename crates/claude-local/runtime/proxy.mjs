@@ -802,6 +802,7 @@ function restMessages(c) {
     files: [], files_v2: [], attachments: [], sync_sources: [], ...m,
   });
   if (c.chat_messages?.length) return c.chat_messages.map(withArrays);
+  const messages = [];
   for (const turn of c.turns || []) {
     const created = restTime(turn.created, c.created_at);
     // 11-17 起的前端对消息里的数组字段直接 .some()/.map()：缺了就是
